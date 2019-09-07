@@ -8,6 +8,8 @@ apt install -y vim \
   git \
   locales \
   tzdata \
+  fonts-noto-cjk \
+  ibus-mozc \
   sed \
   gawk \
   curl \
