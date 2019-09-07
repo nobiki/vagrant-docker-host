@@ -31,7 +31,54 @@ apt-get update
 apt-get install -y wget docker-ce
 
 # docker-compose
-wget https://github.com/docker/compose/releases/download/${COMPOSE_VER}/docker-compose-Linux-x86_64 -O /usr/local/bin/docker-compose
-chmod +x /usr/local/bin/docker-compose
-gpasswd -a vagrant docker
+if [ ! -e /usr/local/bin/docker-compose ]; then
+    wget https://github.com/docker/compose/releases/download/${COMPOSE_VER}/docker-compose-Linux-x86_64 -O /usr/local/bin/docker-compose
+    chmod +x /usr/local/bin/docker-compose
+    gpasswd -a vagrant docker
+fi
 
+# dotfiles
+tee /home/vagrant/.gitconfig << EOF
+[core]
+    filemode = false
+    editor = vim
+[http]
+    sslVerify = false
+    postBuffer = 524288000
+[alias]
+    pl  = pull
+    pul = pull
+    ps  = push
+    pus = push
+    co  = checkout
+    cp  = cherry-pick
+    br  = branch
+    tg  = tag
+    st  = stash
+    sta = stash
+EOF
+chown vagrant. /home/vagrant/.gitconfig
+
+tee /home/vagrant/.bash_profile << EOF
+# some more aliases
+alias ll='ls -l'
+alias lla='ls -la'
+alias llh='ls -lh'
+alias llha='ls -lha'
+alias la='ls -A'
+alias l='ls -CF'
+alias h='history'
+alias c='clear'
+alias t='toilet'
+alias s='screen'
+alias q='exit'
+
+export HISTTIMEFORMAT='[%F %T] '
+export EDITOR='/usr/bin/vim'
+
+export DISPLAY=localhost:0.0
+EOF
+chown vagrant. /home/vagrant/.bash_profile
+
+echo "[docker] "`/usr/bin/docker -v`
+echo "[docker-compose] "`/usr/local/bin/docker-compose -v`
