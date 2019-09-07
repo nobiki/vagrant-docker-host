@@ -1,6 +1,8 @@
 # -*- mode: ruby -*-
 Vagrant.configure(2) do |config|
-  config.vm.box = "debian/buster64"
+  # config.vm.box = "buster-docker-host.box"
+  config.vm.box = "nobiki/buster-docker-host"
+  config.vm.box_version = "1.0"
   config.vm.define "vagrant-docker-host"
   config.vm.provision :shell, path: "provision.sh"
   config.disksize.size = '200GB'
