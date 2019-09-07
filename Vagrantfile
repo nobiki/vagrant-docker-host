@@ -7,6 +7,7 @@ Vagrant.configure(2) do |config|
   # config.vbguest.installer_arguments = ['--nox11', '-- --do']
   # config.vbguest.auto_update = true
   # config.vm.network "private_network", ip: "192.168.56.101"
+  config.ssh.forward_x11 = true
 
   config.vm.provider "virtualbox" do |vb|
     vb.cpus = 4
