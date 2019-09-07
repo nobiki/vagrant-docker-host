@@ -38,8 +38,10 @@ if [ ! -e /usr/local/bin/docker-compose ]; then
 fi
 
 # ctop
-wget https://github.com/bcicen/ctop/releases/download/v0.7.1/ctop-0.7.1-linux-amd64 -O /usr/local/bin/ctop
-chmod +x /usr/local/bin/ctop
+if [ ! -e /usr/local/bin/ctop ]; then
+    wget https://github.com/bcicen/ctop/releases/download/v0.7.1/ctop-0.7.1-linux-amd64 -O /usr/local/bin/ctop
+    chmod +x /usr/local/bin/ctop
+fi
 
 # dotfiles
 tee /home/vagrant/.gitconfig << EOF
