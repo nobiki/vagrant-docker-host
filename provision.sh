@@ -37,6 +37,10 @@ if [ ! -e /usr/local/bin/docker-compose ]; then
     gpasswd -a vagrant docker
 fi
 
+# ctop
+wget https://github.com/bcicen/ctop/releases/download/v0.7.1/ctop-0.7.1-linux-amd64 -O /usr/local/bin/ctop
+chmod +x /usr/local/bin/ctop
+
 # dotfiles
 tee /home/vagrant/.gitconfig << EOF
 [core]
