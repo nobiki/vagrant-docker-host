@@ -44,7 +44,7 @@ if [ ! -e /usr/local/bin/ctop ]; then
 fi
 
 # dotfiles
-tee /home/vagrant/.gitconfig << EOF
+tee /home/vagrant/.gitconfig << 'EOF'
 [core]
     filemode = false
     editor = vim
@@ -65,7 +65,7 @@ tee /home/vagrant/.gitconfig << EOF
 EOF
 chown vagrant. /home/vagrant/.gitconfig
 
-tee /home/vagrant/.bash_profile << EOF
+tee /home/vagrant/.bash_profile << 'EOF'
 # some more aliases
 alias ll='ls -l'
 alias lla='ls -la'
@@ -79,10 +79,17 @@ alias t='toilet'
 alias s='screen'
 alias q='exit'
 
+# ibus-daemon
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+export NO_AT_BRIDGE=1
+
 export HISTTIMEFORMAT='[%F %T] '
 export EDITOR='/usr/bin/vim'
 
 export DISPLAY=localhost:0.0
+
 EOF
 chown vagrant. /home/vagrant/.bash_profile
 
