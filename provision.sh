@@ -14,6 +14,7 @@ apt install -y vim \
   gawk \
   curl \
   wget \
+  rsync \
   dumb-init
 
 # langage & timezone
