@@ -80,6 +80,10 @@ alias t='toilet'
 alias s='screen'
 alias q='exit'
 
+# docker
+alias d='docker'
+alias dc='docker-compose'
+
 # ibus-daemon
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
