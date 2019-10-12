@@ -18,10 +18,10 @@ apt install -y vim \
   dumb-init
 
 # langage & timezone
-# locale-gen ja_JP.UTF-8
-# localedef -f UTF-8 -i ja_JP ja_JP.UTF-8
-# update-locale LANG=ja_JP.UTF-8
-# ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+locale-gen ja_JP.UTF-8
+localedef -f UTF-8 -i ja_JP ja_JP.UTF-8
+update-locale LANG=ja_JP.UTF-8
+ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 
 # docker-ce
 apt-get install -y apt-transport-https ca-certificates curl wget gnupg2 software-properties-common lsb-release
