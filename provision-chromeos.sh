@@ -6,6 +6,7 @@ export COMPOSE_VER=1.24.1
 sudo apt update
 sudo apt install -y vim \
   git \
+  tig \
   locales \
   tzdata \
   fonts-noto-cjk \
@@ -45,7 +46,7 @@ if [ ! -e /usr/local/bin/ctop ]; then
 fi
 
 # dotfiles
-tee /home/oji4444/.gitconfig << 'EOF'
+tee ${HOME}/.gitconfig << 'EOF'
 [core]
     filemode = false
     editor = vim
@@ -65,7 +66,7 @@ tee /home/oji4444/.gitconfig << 'EOF'
     sta = stash
 EOF
 
-tee /home/oji4444/.bash_profile << 'EOF'
+tee ${HOME}/.bash_profile << 'EOF'
 # some more aliases
 alias ll='ls -l'
 alias lla='ls -la'
@@ -92,7 +93,7 @@ export NO_AT_BRIDGE=1
 export HISTTIMEFORMAT='[%F %T] '
 export EDITOR='/usr/bin/vim'
 
-export DISPLAY=localhost:0.0
+export DISPLAY=:1
 
 EOF
 
