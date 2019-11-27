@@ -9,7 +9,7 @@ apt install -y vim \
   locales \
   tzdata \
   fonts-noto-cjk \
-  ibus-mozc \
+  fcitx-mozc \
   sed \
   gawk \
   curl \
@@ -83,12 +83,6 @@ alias q='exit'
 # docker
 alias d='docker'
 alias dc='docker-compose'
-
-# ibus-daemon
-export GTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
-export NO_AT_BRIDGE=1
 
 export HISTTIMEFORMAT='[%F %T] '
 export EDITOR='/usr/bin/vim'
